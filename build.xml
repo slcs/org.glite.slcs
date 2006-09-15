@@ -7,14 +7,18 @@
 	Build file for the slcs subsystem.
 	
 	Authors: Joachim Flammer <Joachim.Flammer@cern.ch>		
-	Version info: $Id: build.xml,v 1.1 2006/09/13 15:07:36 vtschopp Exp $
+	Version info: $Id: build.xml,v 1.2 2006/09/15 13:51:40 vtschopp Exp $
 
 	Release: $Name:  $
 
 	Revision history:
 	$Log: build.xml,v $
-	Revision 1.1  2006/09/13 15:07:36  vtschopp
-	Initial revision
+	Revision 1.2  2006/09/15 13:51:40  vtschopp
+	external dependencies added.
+	fake source removed.
+
+	Revision 1.1.1.1  2006/09/13 15:07:36  vtschopp
+	EGEE JRA1 SWITCH SLCS subsystem
 
 	Revision 1.10  2005/04/17 10:30:50  dimeglio
 	Added envset dependency
@@ -219,8 +223,56 @@
 
 	<!-- component targets definitions tag = do not remove = -->
 
+	<target name="server" unless="setenvonly" depends="envset,common">
+		<if>
+			<isset property="small.memory"/>
+			<then>
+				<exec dir="${slcs.subsystem.dir}.server" executable="${antExec}" failonerror="${failonerror}">
+					<arg line="${target} -Dsmall.memory=true -Dbootstrap=${bootstrap} -Dfailonerror=${failonerror} -Ddo.cvs.tag=${do.cvs.tag}"/>
+				</exec>
+			</then>
+			<else>
+				<ant dir="${slcs.subsystem.dir}.server"
+        				target="${target}"
+        				inheritall="false" />
+			</else>
+		</if>
+ 	</target>
+
+	<target name="ui" unless="setenvonly" depends="envset,common">
+		<if>
+			<isset property="small.memory"/>
+			<then>
+				<exec dir="${slcs.subsystem.dir}.ui" executable="${antExec}" failonerror="${failonerror}">
+					<arg line="${target} -Dsmall.memory=true -Dbootstrap=${bootstrap} -Dfailonerror=${failonerror} -Ddo.cvs.tag=${do.cvs.tag}"/>
+				</exec>
+			</then>
+			<else>
+				<ant dir="${slcs.subsystem.dir}.ui"
+        				target="${target}"
+        				inheritall="false" />
+			</else>
+		</if>
+ 	</target>
+
+	<target name="common" unless="setenvonly" depends="envset">
+		<if>
+			<isset property="small.memory"/>
+			<then>
+				<exec dir="${slcs.subsystem.dir}.common" executable="${antExec}" failonerror="${failonerror}">
+					<arg line="${target} -Dsmall.memory=true -Dbootstrap=${bootstrap} -Dfailonerror=${failonerror} -Ddo.cvs.tag=${do.cvs.tag}"/>
+				</exec>
+			</then>
+			<else>
+				<ant dir="${slcs.subsystem.dir}.common"
+        				target="${target}"
+        				inheritall="false" />
+			</else>
+		</if>
+ 	</target>
+
 	
 	<!-- Main proxy -->
-        <target name="buildmodules" depends="envset" />
+    <target name="buildmodules" depends="envset,ui" />
 
 </project>
