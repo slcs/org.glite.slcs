@@ -15,11 +15,14 @@
 	GLite Middleware slcs Configuration Specification File
 	
 	Authors: Joachim Flammer <Joachim.Flammer@cern.ch>	
-	Version info: $Id: glite.slcs.csf.xml,v 1.2 2006/09/15 13:51:40 vtschopp Exp $
+	Version info: $Id: glite.slcs.csf.xml,v 1.3 2006/09/21 13:02:17 vtschopp Exp $
 	Release: $Name:  $
 
 	Revision history:
 	$Log: glite.slcs.csf.xml,v $
+	Revision 1.3  2006/09/21 13:02:17  vtschopp
+	org.glite.slcs.server temporarly commented out from subsystem
+
 	Revision 1.2  2006/09/15 13:51:40  vtschopp
 	external dependencies added.
 	fake source removed.
@@ -241,7 +244,8 @@
 	</target>
 
 	<!-- All project modules -->
- 	<target name="project" depends="server,ui,common" />
+ 	<!-- <target name="project" depends="common,ui,server" /> -->
+ 	<target name="project" depends="common,ui" />
     
 	<!-- ====================================================
 		 Checkout all
