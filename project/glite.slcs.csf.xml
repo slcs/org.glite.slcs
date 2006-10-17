@@ -15,11 +15,14 @@
 	GLite Middleware slcs Configuration Specification File
 	
 	Authors: Joachim Flammer <Joachim.Flammer@cern.ch>	
-	Version info: $Id: glite.slcs.csf.xml,v 1.3 2006/09/21 13:02:17 vtschopp Exp $
+	Version info: $Id: glite.slcs.csf.xml,v 1.4 2006/10/17 08:24:58 vtschopp Exp $
 	Release: $Name:  $
 
 	Revision history:
 	$Log: glite.slcs.csf.xml,v $
+	Revision 1.4  2006/10/17 08:24:58  vtschopp
+	added new externals dependencies for common and ui.
+
 	Revision 1.3  2006/09/21 13:02:17  vtschopp
 	org.glite.slcs.server temporarly commented out from subsystem
 
@@ -201,7 +204,18 @@
 	     ===================================================== -->
 	
 	<!--  All external libraries -->
- 	<target name="external" depends="oscheck,junit,bcprov-jdk14,commons-logging,commons-cli,tomcat"
+ 	<target name="external" depends="oscheck,
+                    junit,
+                    bcprov-jdk14,
+                    commons-cli,
+                    commons-codec,
+                    commons-collections,
+                    commons-configuration,
+                    commons-httpclient,
+                    commons-lang,
+                    commons-logging,
+                    jericho-html,
+                    tomcat"
  		description="Install external packages"/>
  	
 	<!-- =====================================================
