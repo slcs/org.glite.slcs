@@ -15,11 +15,14 @@
 	GLite Middleware slcs Configuration Specification File
 	
 	Authors: Joachim Flammer <Joachim.Flammer@cern.ch>	
-	Version info: $Id: glite.slcs.csf.xml,v 1.4 2006/10/17 08:24:58 vtschopp Exp $
+	Version info: $Id: glite.slcs.csf.xml,v 1.5 2006/10/30 15:51:05 vtschopp Exp $
 	Release: $Name:  $
 
 	Revision history:
 	$Log: glite.slcs.csf.xml,v $
+	Revision 1.5  2006/10/30 15:51:05  vtschopp
+	tomcat is only for org.glite.slcs.server (not yet released)
+
 	Revision 1.4  2006/10/17 08:24:58  vtschopp
 	added new externals dependencies for common and ui.
 
@@ -214,8 +217,7 @@
                     commons-httpclient,
                     commons-lang,
                     commons-logging,
-                    jericho-html,
-                    tomcat"
+                    jericho-html"
  		description="Install external packages"/>
  	
 	<!-- =====================================================
