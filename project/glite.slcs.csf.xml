@@ -15,11 +15,14 @@
 	GLite Middleware slcs Configuration Specification File
 	
 	Authors: Joachim Flammer <Joachim.Flammer@cern.ch>	
-	Version info: $Id: glite.slcs.csf.xml,v 1.5 2006/10/30 15:51:05 vtschopp Exp $
+	Version info: $Id: glite.slcs.csf.xml,v 1.6 2006/10/30 16:29:32 vtschopp Exp $
 	Release: $Name:  $
 
 	Revision history:
 	$Log: glite.slcs.csf.xml,v $
+	Revision 1.6  2006/10/30 16:29:32  vtschopp
+	use new bouncycastle 1.34 external
+
 	Revision 1.5  2006/10/30 15:51:05  vtschopp
 	tomcat is only for org.glite.slcs.server (not yet released)
 
@@ -209,7 +212,7 @@
 	<!--  All external libraries -->
  	<target name="external" depends="oscheck,
                     junit,
-                    bcprov-jdk14,
+                    bouncycastle,
                     commons-cli,
                     commons-codec,
                     commons-collections,
