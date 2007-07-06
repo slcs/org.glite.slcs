@@ -1,0 +1,70 @@
+org.glite.slcs README
+---------------------
+
+How to bootstrap the org.glite dev framework, download the required dependencies and build the org.glite.slcs components (org.glite.slcs, org.glite.slcs.common, org.glite.slcs.ui, org.glite.slcs.server)
+
+
+To get the source, simply pull the them from CVS using anymous access.
+
+Required will be Java 1.5 and ant 1.6.X installed and configured (JAVA_HOME, ANT_HOME) on your dev host.
+
+
+1. create a project directory:
+
+mkdir glite-slcs
+
+cd glite-slcs
+
+
+2. checkout org.glite (glite_branch_3_1_0_continous) and org.glite.slcs* (HEAD) modules:
+
+cvs -d :pserver:anonymous@glite.cvs.cern.ch:/cvs/glite co -r glite_branch_3_1_0_continous org.glite
+
+cvs -d :pserver:anonymous@glite.cvs.cern.ch:/cvs/glite co org.glite.slcs
+
+cvs -d :pserver:anonymous@glite.cvs.cern.ch:/cvs/glite co org.glite.slcs.common
+
+cvs -d :pserver:anonymous@glite.cvs.cern.ch:/cvs/glite co org.glite.slcs.ui
+
+cvs -d :pserver:anonymous@glite.cvs.cern.ch:/cvs/glite co org.glite.slcs.server
+
+
+3. create a user .glite.build.properties file in your home directory with the following content, but adapt the gcc version to your local one:
+
+--- 8< --- 8< --- 8< --- 8< ---
+#
+# $HOME/.glite.build.properties
+#
+# compiler hack, set it to your gcc version 
+glite.gcc.version=4.0.1
+
+# add by build and hacked for debian
+os.platform=debian
+os.compatible.platform=slc3_ia32_gcc323
+platform=slc3_ia32_gcc323
+
+--- 8< --- 8< --- 8< --- 8< ---
+
+
+4. download the required dependencies (will be stored in the ./repository directory)
+
+cd org.glite.slcs
+
+ant -f project/glite.slcs.csf.xml
+
+
+5. SLCS client build (standalone version):
+
+cd org.glite.slcs.ui
+
+ant -f standalone.build.properties
+
+
+6. SLCS server build (standalone version):
+
+cd org.glite.slcs.server
+
+ant -f standalone.build.properties
+
+--
+$Id: README.build,v 1.1 2007/07/06 13:14:20 vtschopp Exp $
