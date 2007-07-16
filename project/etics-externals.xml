@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright (c) Members of the EGEE Collaboration. 2004 
+    See http://eu-egee.org/partners/ for details on the copyright holders
+    For license conditions see the license file or http://eu-egee.org/license.html
+
+    ETICS externals dependencies definition
+
+    Author: Valery Tschopp <tschopp@switch.ch>
+    Version: $Id: etics-externals.xml,v 1.1 2007/07/16 10:32:06 vtschopp Exp $
+-->
+<project name="ETICS externals dependencies definition">
+
+    <property name="repository.dir" location="../../repository" />
+    <property name="externals.dir" location="${repository.dir}/externals" />
+    
+    <echo message="externals.dir=${externals.dir}"/>
+
+    <!-- apache-struts -->
+    <property name="apache-struts.version" value="1.3.5"/>
+    <property name="apache-struts.dir" location="${externals.dir}/apache-struts/${apache-struts.version}/noarch"/>
+    <fileset id="apache-struts.fileset" dir="${apache-struts.dir}">
+        <!-- SUN taglib -->
+        <include name="lib/jstl-*.jar"/>
+        <include name="lib/standard-*.jar"/>
+        <!-- jakarta commons -->
+        <include name="lib/commons-beanutils-*.jar"/>
+        <include name="lib/commons-chain-*.jar"/>
+        <include name="lib/commons-digester-*.jar"/>
+        <!-- Struts -->
+        <include name="lib/struts-core-*.jar"/>
+        <include name="lib/struts-taglib-*.jar"/>
+        <include name="lib/struts-tiles-*.jar"/>
+    </fileset>
+    <path id="apache-struts.classpath">
+        <fileset refid="apache-struts.fileset"/>
+    </path>
+
+    <!-- axis -->
+    <property name="axis.version" value="1.2.1"/>
+    <property name="axis.dir" location="${externals.dir}/axis/${axis.version}/noarch"/>
+    <fileset id="axis.fileset" dir="${axis.dir}">
+        <include name="lib/axis.jar"/>
+        <include name="lib/commons-discovery-*.jar"/>
+        <include name="lib/jaxrpc.jar"/>
+        <include name="lib/saaj.jar"/>
+    </fileset>
+    <path id="axis.classpath">
+        <fileset refid="axis.fileset"/>
+    </path>
+    
+    <!-- bouncycastle -->
+    <property name="bouncycastle.version" value="1.34"/>
+    <property name="bouncycastle.dir" location="${externals.dir}/bouncycastle/${bouncycastle.version}/noarch"/>
+    <fileset id="bouncycastle.fileset" dir="${bouncycastle.dir}">
+        <include name="jars/bcprov-*.jar"/>
+        <include name="jars/bcmail-*.jar"/>
+    </fileset>
+    <path id="bouncycastle.classpath">
+        <fileset refid="bouncycastle.fileset"/>
+    </path>
+
+    <!-- commons-cli -->
+    <property name="commons-cli.version" value="1.0.0"/>
+    <property name="commons-cli.dir" location="${externals.dir}/commons-cli/${commons-cli.version}/noarch"/>
+    <fileset id="commons-cli.fileset" dir="${commons-cli.dir}">
+        <include name="commons-cli-*.jar"/>
+    </fileset>
+    <path id="commons-cli.classpath">
+        <fileset refid="commons-cli.fileset"/>
+    </path>
+    
+    <!-- commons-codec -->
+    <property name="commons-codec.version" value="1.3.0"/>
+    <property name="commons-codec.dir" location="${externals.dir}/commons-codec/${commons-codec.version}/noarch"/>
+    <fileset id="commons-codec.fileset" dir="${commons-codec.dir}">
+        <include name="commons-codec-*.jar"/>
+    </fileset>
+    <path id="commons-codec.classpath">
+        <fileset refid="commons-codec.fileset"/>
+    </path>
+
+    <!-- commons-collections -->
+    <property name="commons-collections.version" value="1.3.0"/>
+    <property name="commons-collections.dir" location="${externals.dir}/commons-collections/${commons-collections.version}/noarch"/>
+    <fileset id="commons-collections.fileset" dir="${commons-collections.dir}">
+        <include name="commons-collections-*.jar"/>
+        <exclude name="commons-collections-testframework-*.jar"/>
+    </fileset>
+    <path id="commons-collections.classpath">
+        <fileset refid="commons-collections.fileset"/>
+    </path>
+
+    <!-- commons-configuration -->
+    <property name="commons-configuration.version" value="1.3.0"/>
+    <property name="commons-configuration.dir" location="${externals.dir}/commons-configuration/${commons-configuration.version}/noarch"/>
+    <fileset id="commons-configuration.fileset" dir="${commons-configuration.dir}">
+        <include name="commons-configuration-*.jar"/>
+    </fileset>
+    <path id="commons-configuration.classpath">
+        <fileset refid="commons-configuration.fileset"/>
+    </path>
+
+    <!-- commons-httpclient -->
+    <property name="commons-httpclient.version" value="1.3.0"/>
+    <property name="commons-httpclient.dir" location="${externals.dir}/commons-httpclient/${commons-httpclient.version}/noarch"/>
+    <fileset id="commons-httpclient.fileset" dir="${commons-httpclient.dir}">
+        <include name="commons-httpclient-*.jar"/>
+    </fileset>
+    <path id="commons-httpclient.classpath">
+        <fileset refid="commons-httpclient.fileset"/>
+    </path>
+
+    <!-- commons-lang -->
+    <property name="commons-lang.version" value="2.1.0"/>
+    <property name="commons-lang.dir" location="${externals.dir}/commons-lang/${commons-lang.version}/noarch"/>
+    <fileset id="commons-lang.fileset" dir="${commons-lang.dir}">
+        <include name="commons-lang-*.jar"/>
+    </fileset>
+    <path id="commons-lang.classpath">
+        <fileset refid="commons-lang.fileset"/>
+    </path>
+
+    <!-- commons-lang -->
+    <property name="commons-logging.version" value="1.0.4"/>
+    <property name="commons-logging.dir" location="${externals.dir}/commons-logging/${commons-logging.version}/noarch"/>
+    <fileset id="commons-logging.fileset" dir="${commons-logging.dir}">
+        <include name="commons-logging.jar"/>
+    </fileset>
+    <path id="commons-logging.classpath">
+        <fileset refid="commons-logging.fileset"/>
+    </path>
+
+    <!-- jericho-html -->
+    <property name="jericho-html.version" value="2.3.0"/>
+    <property name="jericho-html.dir" location="${externals.dir}/jericho-html/${jericho-html.version}/noarch"/>
+    <fileset id="jericho-html.fileset" dir="${jericho-html.dir}">
+        <include name="lib/jericho-html-*.jar"/>
+    </fileset>
+    <path id="jericho-html.classpath">
+        <fileset refid="jericho-html.fileset"/>
+    </path>
+
+    <!-- junit -->
+    <property name="junit.version" value="3.8.1"/>
+    <property name="junit.dir" location="${externals.dir}/junit/${junit.version}/noarch"/>
+    <fileset id="junit.fileset" dir="${junit.dir}">
+        <include name="junit.jar"/>
+    </fileset>
+    <path id="junit.classpath">
+        <fileset refid="junit.fileset"/>
+    </path>
+
+    <!-- log4j -->
+    <property name="log4j.version" value="3.8.1"/>
+    <property name="log4j.dir" location="${externals.dir}/log4j/${log4j.version}/noarch"/>
+    <fileset id="log4j.fileset" dir="${log4j.dir}">
+        <include name="dist/lib/log4j-*.jar"/>
+    </fileset>
+    <path id="log4j.classpath">
+        <fileset refid="log4j.fileset"/>
+    </path>
+
+    <!-- mm-mysql: MySQL JDBC -->
+    <property name="mm-mysql.version" value="3.1.8"/>
+    <property name="mm-mysql.dir" location="${externals.dir}/mm-mysql/${mm-mysql.version}/noarch"/>
+    <fileset id="mm-mysql.fileset" dir="${mm-mysql.dir}">
+        <include name="mysql-connector-java-*.jar"/>
+    </fileset>
+    <path id="mm-mysql.classpath">
+        <fileset refid="mm-mysql.fileset"/>
+    </path>
+
+    <!-- tomcat -->
+    <property name="tomcat.version" value="5.0.28"/>
+    <property name="tomcat.dir" location="${externals.dir}/tomcat/${tomcat.version}/noarch"/>
+    <fileset id="tomcat.fileset" dir="${tomcat.dir}">
+        <include name="common/lib/servlet-api.jar"/>
+    </fileset>
+    <path id="tomcat.classpath">
+        <fileset refid="tomcat.fileset"/>
+    </path>
+    
+</project>
