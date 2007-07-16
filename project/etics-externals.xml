@@ -7,7 +7,7 @@
     ETICS externals dependencies definition
 
     Author: Valery Tschopp <tschopp@switch.ch>
-    Version: $Id: etics-externals.xml,v 1.1 2007/07/16 10:32:06 vtschopp Exp $
+    Version: $Id: etics-externals.xml,v 1.2 2007/07/16 12:21:56 vtschopp Exp $
 -->
 <project name="ETICS externals dependencies definition">
 
@@ -52,12 +52,21 @@
     <!-- bouncycastle -->
     <property name="bouncycastle.version" value="1.34"/>
     <property name="bouncycastle.dir" location="${externals.dir}/bouncycastle/${bouncycastle.version}/noarch"/>
-    <fileset id="bouncycastle.fileset" dir="${bouncycastle.dir}">
+    <echo message="bouncycastle.dir=${bouncycastle.dir}"/>
+    <fileset id="bouncycastle.bcprov.fileset" dir="${bouncycastle.dir}">
         <include name="jars/bcprov-*.jar"/>
+    <fileset id="bouncycastle.bcmail.fileset" dir="${bouncycastle.dir}">
         <include name="jars/bcmail-*.jar"/>
     </fileset>
+    <path id="bouncycastle.bcprov.classpath">
+        <fileset refid="bouncycastle.bcprov.fileset"/>
+    </path>
+    <path id="bouncycastle.bcmail.classpath">
+        <fileset refid="bouncycastle.bcmail.fileset"/>
+    </path>
     <path id="bouncycastle.classpath">
-        <fileset refid="bouncycastle.fileset"/>
+        <path refid="bouncycastle.bcprov.classpath"/>
+        <path refid="bouncycastle.bcmail.classpath"/>
     </path>
 
     <!-- commons-cli -->
