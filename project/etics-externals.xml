@@ -7,15 +7,13 @@
     ETICS externals dependencies definition
 
     Author: Valery Tschopp <tschopp@switch.ch>
-    Version: $Id: etics-externals.xml,v 1.2 2007/07/16 12:21:56 vtschopp Exp $
+    Version: $Id: etics-externals.xml,v 1.3 2007/07/16 13:20:01 vtschopp Exp $
 -->
 <project name="ETICS externals dependencies definition">
 
-    <property name="repository.dir" location="../../repository" />
+    <property name="repository.dir" location="../repository" />
     <property name="externals.dir" location="${repository.dir}/externals" />
     
-    <echo message="externals.dir=${externals.dir}"/>
-
     <!-- apache-struts -->
     <property name="apache-struts.version" value="1.3.5"/>
     <property name="apache-struts.dir" location="${externals.dir}/apache-struts/${apache-struts.version}/noarch"/>
@@ -52,11 +50,11 @@
     <!-- bouncycastle -->
     <property name="bouncycastle.version" value="1.34"/>
     <property name="bouncycastle.dir" location="${externals.dir}/bouncycastle/${bouncycastle.version}/noarch"/>
-    <echo message="bouncycastle.dir=${bouncycastle.dir}"/>
     <fileset id="bouncycastle.bcprov.fileset" dir="${bouncycastle.dir}">
-        <include name="jars/bcprov-*.jar"/>
+        <include name="jars/bcprov-jdk15-*.jar"/>
+    </fileset>
     <fileset id="bouncycastle.bcmail.fileset" dir="${bouncycastle.dir}">
-        <include name="jars/bcmail-*.jar"/>
+        <include name="jars/bcmail-jdk15-*.jar"/>
     </fileset>
     <path id="bouncycastle.bcprov.classpath">
         <fileset refid="bouncycastle.bcprov.fileset"/>
@@ -80,7 +78,7 @@
     </path>
     
     <!-- commons-codec -->
-    <property name="commons-codec.version" value="1.3.0"/>
+    <property name="commons-codec.version" value="1.3"/>
     <property name="commons-codec.dir" location="${externals.dir}/commons-codec/${commons-codec.version}/noarch"/>
     <fileset id="commons-codec.fileset" dir="${commons-codec.dir}">
         <include name="commons-codec-*.jar"/>
@@ -90,7 +88,7 @@
     </path>
 
     <!-- commons-collections -->
-    <property name="commons-collections.version" value="1.3.0"/>
+    <property name="commons-collections.version" value="3.2"/>
     <property name="commons-collections.dir" location="${externals.dir}/commons-collections/${commons-collections.version}/noarch"/>
     <fileset id="commons-collections.fileset" dir="${commons-collections.dir}">
         <include name="commons-collections-*.jar"/>
@@ -101,7 +99,7 @@
     </path>
 
     <!-- commons-configuration -->
-    <property name="commons-configuration.version" value="1.3.0"/>
+    <property name="commons-configuration.version" value="1.2"/>
     <property name="commons-configuration.dir" location="${externals.dir}/commons-configuration/${commons-configuration.version}/noarch"/>
     <fileset id="commons-configuration.fileset" dir="${commons-configuration.dir}">
         <include name="commons-configuration-*.jar"/>
@@ -111,7 +109,7 @@
     </path>
 
     <!-- commons-httpclient -->
-    <property name="commons-httpclient.version" value="1.3.0"/>
+    <property name="commons-httpclient.version" value="3.0.1"/>
     <property name="commons-httpclient.dir" location="${externals.dir}/commons-httpclient/${commons-httpclient.version}/noarch"/>
     <fileset id="commons-httpclient.fileset" dir="${commons-httpclient.dir}">
         <include name="commons-httpclient-*.jar"/>
@@ -130,7 +128,7 @@
         <fileset refid="commons-lang.fileset"/>
     </path>
 
-    <!-- commons-lang -->
+    <!-- commons-logging -->
     <property name="commons-logging.version" value="1.0.4"/>
     <property name="commons-logging.dir" location="${externals.dir}/commons-logging/${commons-logging.version}/noarch"/>
     <fileset id="commons-logging.fileset" dir="${commons-logging.dir}">
@@ -141,7 +139,7 @@
     </path>
 
     <!-- jericho-html -->
-    <property name="jericho-html.version" value="2.3.0"/>
+    <property name="jericho-html.version" value="2.3"/>
     <property name="jericho-html.dir" location="${externals.dir}/jericho-html/${jericho-html.version}/noarch"/>
     <fileset id="jericho-html.fileset" dir="${jericho-html.dir}">
         <include name="lib/jericho-html-*.jar"/>
@@ -161,7 +159,7 @@
     </path>
 
     <!-- log4j -->
-    <property name="log4j.version" value="3.8.1"/>
+    <property name="log4j.version" value="1.2.8"/>
     <property name="log4j.dir" location="${externals.dir}/log4j/${log4j.version}/noarch"/>
     <fileset id="log4j.fileset" dir="${log4j.dir}">
         <include name="dist/lib/log4j-*.jar"/>
