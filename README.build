@@ -81,7 +81,7 @@ cvs co org.glite.slcs.server
 3. Use ant to download the required dependencies in the repository directory:
 
 cd org.glite.slcs
-ant repository
+ant -f project/etics-externals.xml etics-externals.download
 
 
 4. Use ant to build the different components:
@@ -106,4 +106,4 @@ ant
 
 
 --
-$Id: README.build,v 1.5 2007/07/23 12:21:43 vtschopp Exp $
+$Id: README.build,v 1.6 2007/07/23 12:23:41 vtschopp Exp $
