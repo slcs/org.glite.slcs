@@ -1,8 +1,0 @@
-#! /bin/sh
-
-cd ../..
-cvs co org.glite
-cvs co org.glite.slcs
-
-cd org.glite.slcs
-ant -f project/glite.slcs.csf.xml
