@@ -14,6 +14,7 @@ How to bootstrap the org.glite dev framework, download the required dependencies
 REQUIRED: 
 - ETICS client installed.
 - Java 1.5.X installed and configured (JAVA_HOME).
+- lsb-release package (Linux,Debian)
 
 ETICS BUILD:
 
@@ -29,7 +30,7 @@ cd ~/slcs-workspace
 etics-workspace-setup
 
 
-2. (optional) Create or edit the ~/slcs-workspace/etics.conf file and set the vcsroot property as follow:
+2. Create or edit the ~/slcs-workspace/etics.conf file and set the vcsroot property as follow:
 
 [user]
 vcsroot=:pserver:anonymous@glite.cvs.cern.ch:/cvs/glite
@@ -106,4 +107,4 @@ ant
 
 
 --
-$Id: README.build,v 1.6 2007/07/23 12:23:41 vtschopp Exp $
+$Id: README.build,v 1.7 2007/09/07 14:23:04 vtschopp Exp $
